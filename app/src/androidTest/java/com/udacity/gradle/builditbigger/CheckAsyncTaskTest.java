@@ -12,6 +12,8 @@ import static org.junit.Assert.*;
  * Created by songoku on 28/12/17.
  */
 
+//code has been seen from-
+//http://kevlaichungsing.blogspot.in/2016/03/gradle/testing
 @RunWith(AndroidJUnit4.class)
 public class CheckAsyncTaskTest {
     @Test

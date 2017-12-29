@@ -41,6 +41,31 @@ android {
 
 }
 
+//code used from-
+//        https://www.petrikainulainen.net/programming/gradle/getting-started-with-gradle-integration-testing/
+//https://www.tutorialspoint.com/gradle/gradle_testing.htm
+
+task testProject {
+        dependsOn(['startDevServer','runMyTests','shutdownDevServer'])
+    }
+
+    task startDevServer {
+        dependsOn ':backend:appengineRun'
+        evaluationDependsOn(":backend")
+        project(':backend').appengine.daemon = true
+    }
+
+    task runMyTests {
+        dependsOn ':app:connectedAndroidTest'
+        mustRunAfter "startDevServer"
+    }
+
+    task shutdownDevServer {
+        dependsOn ':backend:appengineStop'
+        mustRunAfter "runMyTests"
+
+    }
+
 dependencies {
     implementation 'com.android.support:support-v4:26.1.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
