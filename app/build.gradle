@@ -35,6 +35,7 @@ android {
         paid {
             applicationId "com.udacity.gradle.builditbigger.paid"
             versionName "1.0­paid"
+
         }
     }
 
